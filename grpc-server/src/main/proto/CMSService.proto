@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+package com.trinad.cms.grpcserver.service;
+
+option java_multiple_files = true;
+// option java_package = "proto";
+option java_outer_classname = "CMSServiceProto";
+
+
+// #region blog posts
+
+message BlogPostRequest {
+	int64 bp_id = 1;
+	string title = 2;
+	string description = 3;
+	string picture_name = 4;
+	string picture = 5;
+	string user_identity = 6;
+}
+
+message SuccessAcknowlegement {
+	string status = 1;
+}
+
+message BlogPostCommentRequest {
+	int64 bp_com_id = 1;
+	int64 bp_id = 2;
+	string comment = 3;
+	int64 com_parent_id = 4;
+	string user_identity = 5;
+}
+
+message Empty {
+
+}
+
+message BlogPost {
+	BlogPostRequest bpr = 1;
+	string name = 2;
+}
+
+message BlogPosts {
+	repeated BlogPost bp = 1;
+}
+
+message BlogPostCommentsRequest {
+	int64 bp_id = 1;
+}
+
+message BlogPostComment {
+	BlogPostCommentRequest bpcr = 1;
+	string created_time = 2;
+	string name = 3;
+}
+
+message BlogPostComments {
+	repeated BlogPostComment bpc = 1;
+}
+
+message GetAllBlogPostsRequest {
+	string type = 1;
+}
+
+
+// Create Post Blog service definition
+service BlogPostService {
+	rpc CreateBlogPost (BlogPostRequest) returns (SuccessAcknowlegement) {
+	}
+	
+	rpc CreateBlogPostComment (BlogPostCommentRequest) returns (SuccessAcknowlegement) {
+	}
+	
+	rpc GetAllBlogPosts (GetAllBlogPostsRequest) returns (BlogPosts) {
+	} 
+	
+	rpc GetAllCommentsByBlogPostId (BlogPostCommentsRequest) returns (BlogPostComments) {
+	}
+}
+
+// #endregion blog posts
+
+// #region user
+
+message UserRequest {
+	string name = 1;
+	string given_name = 2;
+	string family_name = 3;
+	string nick_name = 4;
+	string email = 5;
+	string picture = 6;
+	string user_identity = 7;
+}
+
+service UserService {
+	rpc CheckAndCreateUser (UserRequest) returns (Empty) {};
+}
+
+// #endregion user

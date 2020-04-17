@@ -1,0 +1,16 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["react"],
+  "rules": {
+    "no-undef": [1]
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "overrides": [
+      {
+        "files": "**/*.js",
+        "excludedFiles": "**/*_pb.js"
+      }
+    ]
+  }
+}

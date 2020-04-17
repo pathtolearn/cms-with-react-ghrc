@@ -1,0 +1,111 @@
+body,
+html,
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+.login-header {
+  display: block;
+  height: 10rem;
+  width: 100%;
+  background-color: #353b48;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-buttons {
+  margin-top: 5rem;
+  margin-left: 15rem;
+}
+
+.blog-post-form {
+  margin: 5rem;
+
+  :not(:first-child) {
+    margin-top: 2rem;
+  }
+
+  .form-heading {
+    text-align: center;
+  }
+}
+
+.custom-link {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.comments {
+  margin: 1.5rem 0;
+  max-width: 650px;
+
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  .comment {
+    position: relative;
+    background: 0 0;
+    margin: 0.5em 0 0;
+    padding: 0.5em 0 0;
+    border: none;
+    border-top: none;
+    line-height: 1.2;
+
+    .comments {
+      margin: 0 0 0.5em 0.5em;
+      padding: 1em 0 1em 1em;
+    }
+
+    .avatar {
+      display: block;
+      width: 2.5em;
+      height: auto;
+      float: left;
+      margin: 0.2em 0 0;
+
+      & ~ .content {
+        margin-left: 3.5em;
+      }
+
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        border-radius: 0.25rem;
+      }
+    }
+
+    .text {
+      margin: 0.25em 0 0.5em;
+      font-size: 1em;
+      word-wrap: break-word;
+      color: rgba(0, 0, 0, 0.87);
+      line-height: 1.3;
+    }
+
+    .metadata {
+      display: inline-block;
+      margin-left: 0.5em;
+      color: rgba(0, 0, 0, 0.4);
+      font-size: 0.875em;
+
+      & > :last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
